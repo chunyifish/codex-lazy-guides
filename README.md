@@ -9,6 +9,7 @@
 - [Codex 懶人包 #00：Windows 環境建置](00-Windows環境建置.md)
 - [Codex 懶人包 #01：初始化可接續專案工作區](01-初始化可接續專案工作區.md)
 - [Codex 懶人包 #02：連接 Google NotebookLM](02-Codex連接NotebookLM.md)
+- [Codex 懶人包 #03：連接 GitHub](03-Codex連接GitHub.md)
 
 ## 使用方式
 
