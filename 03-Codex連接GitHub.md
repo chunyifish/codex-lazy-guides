@@ -84,6 +84,15 @@ $GH_CMD = (Get-Command gh -ErrorAction Stop).Source
 
 ### 3. 登入 GitHub CLI
 
+無論是否執行過安裝步驟，都先確認這次流程使用的 `gh` 路徑：
+
+```powershell
+if (-not $GH_CMD) {
+    $GH_CMD = (Get-Command gh -ErrorAction Stop).Source
+}
+& $GH_CMD --version
+```
+
 ```powershell
 & $GH_CMD auth status
 ```
@@ -113,11 +122,11 @@ git config --get user.name
 git config --get user.email
 ```
 
-尚未設定時，詢問使用者要使用的值。只套用本次 repo 時：
+尚未設定時，詢問使用者要使用的值。若只套用本次測試 repo，先記下資料；此時尚未執行 `git init`，不要先執行 `git config`：
 
 ```powershell
-git config user.name "使用者指定的名稱"
-git config user.email "使用者指定的 Email"
+$GIT_NAME = "使用者指定的名稱"
+$GIT_EMAIL = "使用者指定的 Email"
 ```
 
 只有使用者明確要求所有專案共用時，才設定全域值：
@@ -147,6 +156,14 @@ New-Item -ItemType Directory -Path $REPO_PATH -ErrorAction Stop | Out-Null
 Set-Location -LiteralPath $REPO_PATH
 git init
 git branch -M main
+
+if ($GIT_NAME -and $GIT_EMAIL) {
+    git config user.name "$GIT_NAME"
+    git config user.email "$GIT_EMAIL"
+}
+
+git config --get user.name
+git config --get user.email
 ```
 
 建立測試頁面並提交：
