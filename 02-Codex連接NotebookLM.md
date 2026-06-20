@@ -1,7 +1,7 @@
 # Codex 連接 Google NotebookLM：跨電腦執行版
 
-> 適用對象：把本文件交給 Codex，讓 Codex 協助在新電腦完成安裝、登入、串接與驗證。  
-> 主要環境：Windows PowerShell。macOS/Linux 差異請見文末附錄。  
+> 適用對象：把本文件交給 Codex，讓 Codex 協助在新電腦完成安裝、登入、串接與驗證。
+> 主要環境：Windows PowerShell。macOS/Linux 差異請見文末附錄。
 > 文件查核日期：2026-06-20。
 
 ## 完成條件
